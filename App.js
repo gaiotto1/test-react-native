@@ -3,8 +3,8 @@ import PeoplePage from './src/pages/PeoplePage';
 
 const AppNavigator = createStackNavigator({
   'Main': {
-    screen: PeoplePage
-  };
+    screen: PeoplePage,
+  },
 });
 
 const AppContainer = createAppContainer(AppNavigator);
