@@ -1,26 +1,25 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+
+import PeopleListItem from './PeopleListItem';
 
 const PeopleList = props => {
   const {peoples} = props;
 
-  const textElements = peoples.map(people => {
-    const {first} = people.name;
+  const items = peoples.map(people => {
     return (
-      <Text style={style.title} key="{first}">
-        {first}
-      </Text>
+      <PeopleListItem
+      key={people.name.first}
+      people={people} />
     );
   });
 
-  return <View>{textElements}</View>;
+  return <View style={styles.container}>{items}</View>;
 };
 
-const style = StyleSheet.create({
-  title: {
-    width: '100%',
-    fontSize: 20,
-    color: '#333',
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#e2f9ff',
   },
 });
 
