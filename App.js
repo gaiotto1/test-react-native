@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text} from 'react-native';
 
 import Header from './src/components/Header';
+import PeopleList from './src/components/PeopleList';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -24,28 +25,13 @@ export default class App extends React.Component {
     });
   }
 
-  renderList() {
-    const textElements = this.state.peoples.map(people => {
-      const {first} = people.name;
-      return <Text style={style.title} key="{first}">{first}</Text>;
-    });
-    return textElements;
-  }
-
   render() {
     return (
       <View>
         <Header title="Pessoas" />
-        {this.renderList()}
+        <PeopleList peoples={this.state.peoples} />
       </View>
     );
   }
 }
 
-const style = StyleSheet.create({
-  title: {
-    width: '100%',
-    fontSize: 20,
-    color: '#333',
-  },
-});
